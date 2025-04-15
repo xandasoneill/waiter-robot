@@ -15,6 +15,7 @@ def main():
     Table.circular((400,450), 50, win)
     Table.oval((550, 400), (700,500 ), win)
     win.getMouse()  
+    win.getMouse()
     win.close()
     
 main()
