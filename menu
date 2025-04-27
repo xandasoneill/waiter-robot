@@ -19,15 +19,14 @@ class Button:
         else:
             return False
         
-        
-def construir_botoes(largura, altura):
-    botao1= Button(Point(0.1*largura,altura*0.5), Point(0.4*largura,0.57*altura),"red",win,"Nível 1")
-    botao2= Button(Point(0.1*largura,altura*0.6), Point(0.4*largura,0.67*altura),"red",win,"Nível 2")
-    botao3= Button(Point(0.1*largura,altura*0.7), Point(0.4*largura,0.77*altura),"red",win,"Nível 3")
-
-
 x, y = 500, 500
 win=GraphWin("janela",x,y)
+botao1= Button(Point(0.1*x,y*0.5), Point(0.4*x,0.57*y),"red",win,"Nível 1")
+botao2= Button(Point(0.1*x,y*0.6), Point(0.4*x,0.67*y),"red",win,"Nível 2")
+botao3= Button(Point(0.1*x,y*0.7), Point(0.4*x,0.77*y),"red",win,"Nível 3")
+
+if botao1.clicar(win.getMouse()):
+    print("clicou")
 construir_botoes(x,y)
 
 
