@@ -1,21 +1,35 @@
 from graphics import *
 from back import *
+from random import *
+from math import *
 
 
 def main():
-    win = GraphWin('buh ba bem', 800, 600)
+    try:
+        x, y = 500, 600
+        win = GraphWin('buh ba bem', x, y)
+        inside_colour = 'brown'
+        outer_colour = 'yellow'
+        #first row of tables
+        t1= Table.circular(Point(int(x/2), int(y/2)), y/20, inside_colour, outer_colour, win)
+        tables = [t1]
+        
+        #docking station (ds)
+        ds = dock((0,0), (50, 50), win)
     
-    #first row of tables
-    Table.circular((150,150),50, win)
-    Table.rectangular((337,100), (438, 200), win)
-    Table.oval((550, 100), (700, 200), win)
-    
-    #second row of tables
-    Table.rectangular((112, 400), (188, 500), win)
-    Table.circular((400,450), 50, win)
-    Table.oval((550, 400), (700,500 ), win)
-    win.getMouse()  
-    win.getMouse()
-    win.close()
+        
+        w = Waiter((500, 500), 20, tables, win)
+        n = int()
+        
+        #navigate to dockstation
+        w.return_to_dock(ds)
+        w.go_to_table(tables, win)
+        
+        win.getMouse()  
+        win.getMouse()
+        win.close()
+        pass
+    finally:
+        win.close()
     
 main()
