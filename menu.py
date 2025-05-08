@@ -1,0 +1,32 @@
+from graphics import*
+
+class Button:
+    
+    def __init__(self,ponto1,ponto2,cor,win,text):
+        self.ponto1=ponto1
+        self.ponto2=ponto2
+        self.cor=cor
+        self.win=win
+        self.text=text
+        Rectangle(ponto1,ponto2).draw(win).setFill(cor)
+        xmed= abs((ponto1.x+ponto2.x)/2)
+        ymed= abs((ponto1.y+ponto2.y)/2)
+        Text(Point(xmed,ymed),text).draw(win)
+    def clicar(self,point):
+        if (point.getX() <= self.ponto2.getX() or point.getX()<=self.ponto1.getX()) and \
+            (point.getY() <= self.ponto1.getY() or point.getY()<=self.ponto2.getY()):
+            return True
+        else:
+            return False
+        
+x, y = 500, 500
+win=GraphWin("janela",x,y)
+botao1= Button(Point(0.1*x,y*0.5), Point(0.4*x,0.57*y),"red",win,"Nível 1")
+botao2= Button(Point(0.1*x,y*0.6), Point(0.4*x,0.67*y),"red",win,"Nível 2")
+botao3= Button(Point(0.1*x,y*0.7), Point(0.4*x,0.77*y),"red",win,"Nível 3")
+
+if botao1.clicar(win.getMouse()):
+    print("clicou")
+
+
+win.getMouse()
